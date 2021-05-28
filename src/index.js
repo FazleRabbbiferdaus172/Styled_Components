@@ -4,9 +4,9 @@ import PrimaryButton,{SecondaryButton, TartiaryButton}  from './components/Butto
 import { GlobalStyle } from "./utils";
 const App = () => (
     <div>
-    <PrimaryButton>Primary Button</PrimaryButton>
-    <SecondaryButton>Secondary Button</SecondaryButton>
-    <TartiaryButton>Tartiary Button</TartiaryButton>
+    <PrimaryButton disabled>Primary Button</PrimaryButton>
+    <SecondaryButton disabled>Secondary Button</SecondaryButton>
+    <TartiaryButton disabled>Tartiary Button</TartiaryButton>
     <GlobalStyle/>
     </div>
 );
