@@ -1,5 +1,46 @@
 import styled from 'styled-components';
 import { defaultTheme,typeScale } from "../utils";
+import { applyStyleModifiers } from "styled-components-modifiers";
+
+
+const BUTTON_MODIFIERS = {
+    small: () =>` 
+        font-size: ${typeScale.helperText};
+        padding: 8px;
+    `,
+    large: () => `
+        font-size: ${typeScale.header5};
+        padding: 16px 24px;
+    `, 
+
+    warning: () =>`
+        background-color: ${defaultTheme.status.warningColor};
+        color: ${defaultTheme.textColorInverted};
+
+        &:hover, &:focus{
+          background-color: ${defaultTheme.status.warningColorHover};
+          outline: 3px solid ${defaultTheme.status.warningColorHover};
+        }
+        &:active {
+            background-color: ${defaultTheme.status.warningColorActive}
+        }
+    `,
+
+    warningSecondary: ()=> `
+        background: none;
+        border-color: 
+    `,
+
+    secondaryButtonWarning: () => `
+    background: none;
+    color: ${defaultTheme.status.warningColor};
+    border: 2px solid ${defaultTheme.status.warningColor};
+    `,
+
+    tertiaryButtonWarning: () => `
+    border: 2px solid ${defaultTheme.status.warningColor};
+    `,
+}
 
 const Button = styled.button`
     padding: 12px 24px;
@@ -37,6 +78,8 @@ const PrimaryButton = styled(Button)`
         color: ${defaultTheme.textOnDisabled};
         cursor: not-allowed;
     }
+
+    ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const SecondaryButton = styled(Button)`
@@ -51,7 +94,9 @@ export const SecondaryButton = styled(Button)`
         border-color: ${defaultTheme.disabled};
         cursor: not-allowed;
     }
-`
+
+    ${applyStyleModifiers(BUTTON_MODIFIERS)}
+`;
 
 export const TartiaryButton = styled(Button)`
     border: none;
@@ -65,6 +110,8 @@ export const TartiaryButton = styled(Button)`
         color: ${defaultTheme.disabled};
         cursor: not-allowed;
     }
-`
+
+    ${applyStyleModifiers(BUTTON_MODIFIERS)}
+`;
 
 export default PrimaryButton;
